@@ -78,7 +78,7 @@ Inspire-toi de la maquette pour le rendu visuel : http://www.orkidees.com/IF08/t
 Quand c'est fini tu fais un git push et tu me préviens."
 
 
-## Pour P6 — CSS, tests & FTP (attend tout le monde)
+## Pour P6 — CSS, tests & FTP
 
 Ton travail commence en tout dernier, quand tout le monde a livré et que j'ai tout mergé. Tu travailles uniquement sur style.css.
 Partie 1 — CSS :
