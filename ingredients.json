@@ -1,8 +1,7 @@
-
 {
   "ingredients": [
     {
-      "name": "Riz carnaroli",
+      "name": "Riz",
       "barcode": "8001420003413",
       "nutriscore_grade ": "B",
       "image_front_small_url": "https://images.openfoodfacts.org/images/products/800/142/000/3413/front_fr.25.400.jpg"
@@ -14,16 +13,16 @@
       "image_front_small_url": "https://images.openfoodfacts.org/images/products/800/247/002/3727/front_fr.85.400.jpg"
     },
     {
-      "name": "Bouillon de légumes ",
-      "barcode": "3760020505936",
-      "nutriscore_grade ": "",
-      "image_front_small_url": "https://images.openfoodfacts.org/images/products/376/002/050/5936/front_fr.133.400.jpg"
+      "name": "Bouillon de volaille",
+      "barcode": "7613033687884",
+      "nutriscore_grade ": "C",
+      "image_front_small_url": "https://images.openfoodfacts.org/images/products/761/303/368/7884/front_fr.271.400.jpg"
     },
     {
-      "name": "Champignon de cèpes",
-      "barcode": "3368952132949",
-      "nutriscore_grade ": "A",
-      "image_front_small_url": "https://images.openfoodfacts.org/images/products/336/895/213/2949/front_fr.44.400.jpg"
+      "name": "Chorizo",
+      "barcode": "3181450100599",
+      "nutriscore_grade ": "E",
+      "image_front_small_url": "https://images.openfoodfacts.org/images/products/318/145/010/0599/front_fr.55.400.jpg"
     },
     {
       "name": "Beurre",
@@ -38,18 +37,6 @@
       "image_front_small_url": "https://images.openfoodfacts.org/images/products/366/209/300/0052/front_fr.27.400.jpg"
     },
     {
-      "name": "Ail",
-      "barcode": "3250391256099",
-      "nutriscore_grade ": "A",
-      "image_front_small_url": "https://images.openfoodfacts.org/images/products/325/039/125/6099/front_fr.19.400.jpg"
-    },
-    {
-      "name": "Echalote",
-      "barcode": "3250391256136",
-      "nutriscore_grade ": "A",
-      "image_front_small_url": "https://images.openfoodfacts.org/images/products/325/039/125/6136/front_fr.5.400.jpg"
-    },
-    {
       "name": "Parmesan râpé",
       "barcode": "3250392334352",
       "nutriscore_grade": "D",
@@ -62,25 +49,23 @@
       "image_front_small_url": "https://images.openfoodfacts.org/images/products/317/552/003/6338/front_fr.13.400.jpg"
     },
     {
-      "name": "Persil ",
-      "barcode": "3222475629747",
+      "name": "poivrons tricolores (rouge, vert et jaune)",
+      "barcode": "3222473651023",
       "nutriscore_grade ": "A",
-      "image_front_small_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFqxxSdplT0ScONze05nMjS0to0CqKmYhO2w&s"
+      "image_front_small_url": "https://images.openfoodfacts.org/images/products/370/063/810/0079/front_fr.21.400.jpg"
     },
     {
-      "name": "Sel ",
-      "barcode": "3252378000954",
-      "nutriscore_grade ": "",
-      "image_front_small_url": "https://images.openfoodfacts.org/images/products/325/237/800/0954/front_fr.114.400.jpg"
+      "name": "Petits pois",
+      "barcode": "3083680482035",
+      "nutriscore_grade ": "A",
+      "image_front_small_url": "https://images.openfoodfacts.org/images/products/308/368/048/2035/front_fr.79.400.jpg"
     },
      {
-      "name": "Poivre noir",
-      "barcode": "3166296550371",
-      "nutriscore_grade ": "",
-      "image_front_small_url": "https://images.openfoodfacts.org/images/products/316/629/655/0371/front_fr.31.400.jpg"
+      "name": "Blanc de poulet",
+      "barcode": "5413458017578",
+      "nutriscore_grade ": "A",
+      "image_front_small_url": "https://images.openfoodfacts.org/images/products/541/345/801/7578/front_fr.23.400.jpg"
     }
 
   ]
 }
-
-

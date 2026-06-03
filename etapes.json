@@ -1,1 +1,39 @@
+{
+  "title": "Risotto au poulet et chorizo",
+
+  "steps": [
+    {
+      "number": 1,
+      "text": "Hacher l'oignon, le faire revenir dans le beurre et l'huile."
+    },
+    {
+      "number": 2,
+      "text": "Y verser ensuite le riz."
+    },
+    {
+      "number": 3,
+      "text": "Quand celui-ci est translucide, ajouter le vin blanc. Quand il s'est évaporé, verser louche par louche le bouillon préalablement chauffé."
+    },
+    {
+      "number": 4,
+      "text": "Assaisonner et éteindre le feu."
+   },
+    {
+      "number": 5,
+      "text": "Ajouter une noix de beurre et du parmesan."
+    },
+    {
+      "number": 6,
+      "text": "Remuer et garder au chaud."
+    },
+    {
+      "number": 7,
+      "text": "Faire revenir des lamelles d'oignon dans l'huile d'olive, et y ajouter le poulet, le chorizo en tranche, les poivrons coupés en petits dés et les petits pois. Laisser cuire 10 min environ et lorsque tout est bien doré, ajouter au risotto et mélanger."
+    },
+    {
+      "number": 8,
+      "text": "Bon appétit !"
+    }
+  ]
+}
 
