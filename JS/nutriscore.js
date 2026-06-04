@@ -1,45 +1,30 @@
 const nutriscoreElement = document.getElementById("nutriscore-recette");
 
-function getGrade(score) {
-  if (score <= -1) return "a";
-  if (score <= 2) return "b";
-  if (score <= 10) return "c";
-  if (score <= 18) return "d";
-  return "e";
+const gradeOrder = ["a", "b", "c", "d", "e"];
+
+function averageGrade(grades) {
+  const indices = grades.map(g => gradeOrder.indexOf(g)).filter(i => i !== -1);
+  if (!indices.length) return null;
+  const avg = indices.reduce((a, b) => a + b, 0) / indices.length;
+  return gradeOrder[Math.round(avg)];
 }
 
-function waitForProducts() {
-  return new Promise(resolve => {
-    const check = () => {
-      if (window.products && window.products.length) {
-        resolve(window.products);
-      } else {
-        setTimeout(check, 100);
-      }
-    };
-    check();
-  });
-}
+function computeNutriscore() {
+  const products = window.products || [];
 
-async function main() {
-  const products = await waitForProducts();
+  const grades = products
+    .map(p => ((p["nutriscore_grade"] || p["nutriscore_grade "] || "")).trim().toLowerCase())
+    .filter(g => gradeOrder.includes(g));
 
-  const scores = products
-    .map(p => p.nutriscore_score)
-    .filter(s => typeof s === "number");
-
-  if (!scores.length) return;
-
-  const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-
-  const grade = getGrade(avg);
+  const grade = averageGrade(grades);
+  if (!grade) return;
 
   const img = document.createElement("img");
   img.src = `https://static.openfoodfacts.org/images/attributes/dist/nutriscore-${grade}.svg`;
-  img.alt = `Nutri-Score ${grade.toUpperCase()}`;
+  img.alt = `Nutri-Score moyen : ${grade.toUpperCase()}`;
   img.style.width = "120px";
 
   nutriscoreElement.appendChild(img);
 }
 
-document.addEventListener("DOMContentLoaded", main);
+document.addEventListener("ingredientsLoaded", computeNutriscore);

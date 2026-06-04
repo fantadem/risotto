@@ -1,12 +1,11 @@
-
 const productList = document.getElementById("productList");
 const nutriscoreBaseUrl = "https://static.openfoodfacts.org/images/attributes/dist/nutriscore";
 window.products = [];
 
-function createProductCard(product) {
-  const name = product.product_name || product.product_name_fr || "Produit non disponible";
-  const imageUrl = product.image_front_small_url || product.image_url || "";
-  const grade = (product.nutriscore_grade || "").toLowerCase();
+function createProductCard(ingredient) {
+  const name = ingredient.name;
+  const imageUrl = ingredient.image_front_small_url || "";
+  const grade = (ingredient["nutriscore_grade"] || ingredient["nutriscore_grade "] || "").trim().toLowerCase();
 
   const card = document.createElement("div");
   card.className = "card mb-3";
@@ -21,10 +20,6 @@ function createProductCard(product) {
   image.className = "img-fluid rounded-start p-2";
   image.alt = name;
   image.src = imageUrl;
-
-  if (!imageUrl) {
-    image.alt = "Produit non disponible";
-  }
 
   const bodyColumn = document.createElement("div");
   bodyColumn.className = "col-8 col-md-10";
@@ -56,45 +51,11 @@ function createProductCard(product) {
   return card;
 }
 
-function createUnavailableCard() {
-  const card = document.createElement("div");
-  card.className = "card mb-3";
-
-  const cardBody = document.createElement("div");
-  cardBody.className = "card-body";
-  cardBody.textContent = "Produit non disponible";
-
-  card.appendChild(cardBody);
-
-  return card;
-}
-
-async function fetchProduct(barcode) {
-  const response = await fetch(
-    `https://world.openfoodfacts.org/api/v2/product/${barcode}.json?fields=product_name,product_name_fr,image_front_small_url,image_url,nutriscore_grade,nutriscore_score`
-  );
-
-  if (!response.ok) {
-    throw new Error("Produit non disponible");
-  }
-
-  const data = await response.json();
-
-  if (!data.product) {
-    throw new Error("Produit non disponible");
-  }
-
-  return data.product;
-}
-
 async function loadIngredients() {
-  if (!productList) {
-    return;
-  }
+  if (!productList) return;
 
   productList.innerHTML = "";
   window.products = [];
-
 
   try {
     const response = await fetch("ingredients.json");
@@ -102,17 +63,14 @@ async function loadIngredients() {
     const ingredients = data.ingredients || [];
 
     for (const ingredient of ingredients) {
-      try {
-        const product = await fetchProduct(ingredient.barcode);
-        window.products.push(product);
-        productList.appendChild(createProductCard(product));
-      } catch (error) {
-        productList.appendChild(createUnavailableCard());
-      }
+      window.products.push(ingredient);
+      productList.appendChild(createProductCard(ingredient));
     }
   } catch (error) {
-    productList.appendChild(createUnavailableCard());
+    // échec silencieux
   }
+
+  document.dispatchEvent(new CustomEvent("ingredientsLoaded"));
 }
 
 document.addEventListener("DOMContentLoaded", loadIngredients);
