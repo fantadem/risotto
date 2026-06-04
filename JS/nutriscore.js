@@ -23,6 +23,7 @@ function computeNutriscore() {
   img.src = `https://static.openfoodfacts.org/images/attributes/dist/nutriscore-${grade}.svg`;
   img.alt = `Nutri-Score moyen : ${grade.toUpperCase()}`;
   img.style.width = "120px";
+  img.style.mixBlendMode = "multiply";
 
   nutriscoreElement.appendChild(img);
 }
