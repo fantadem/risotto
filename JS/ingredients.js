@@ -1,6 +1,7 @@
 
 const productList = document.getElementById("productList");
 const nutriscoreBaseUrl = "https://static.openfoodfacts.org/images/attributes/dist/nutriscore";
+window.products = [];
 
 function createProductCard(product) {
   const name = product.product_name || product.product_name_fr || "Produit non disponible";
@@ -70,7 +71,7 @@ function createUnavailableCard() {
 
 async function fetchProduct(barcode) {
   const response = await fetch(
-    `https://world.openfoodfacts.org/api/v2/product/${barcode}.json?fields=product_name,product_name_fr,image_front_small_url,image_url,nutriscore_grade`
+    `https://world.openfoodfacts.org/api/v2/product/${barcode}.json?fields=product_name,product_name_fr,image_front_small_url,image_url,nutriscore_grade,nutriscore_score`
   );
 
   if (!response.ok) {
@@ -92,6 +93,8 @@ async function loadIngredients() {
   }
 
   productList.innerHTML = "";
+  window.products = [];
+
 
   try {
     const response = await fetch("ingredients.json");
@@ -101,6 +104,7 @@ async function loadIngredients() {
     for (const ingredient of ingredients) {
       try {
         const product = await fetchProduct(ingredient.barcode);
+        window.products.push(product);
         productList.appendChild(createProductCard(product));
       } catch (error) {
         productList.appendChild(createUnavailableCard());
